@@ -8,7 +8,7 @@ $(function(){
 		console.log(param);
 		$.ajax({
 			type: "post",
-			url: "/api/user",
+			url: "/auth/joinProc",
 			data: JSON.stringify(param),
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
@@ -22,7 +22,7 @@ $(function(){
 		});
 	});
 	
-	$("#btn-login").click(function(){
+	/*$("#btn-login").click(function(){
 		let param = {
 			username: $("#username").val(),
 			password: $("#password").val()
@@ -42,5 +42,5 @@ $(function(){
 				console.log("error 결과값 : ", err);
 			}
 		});
-	});
+	});*/
 });

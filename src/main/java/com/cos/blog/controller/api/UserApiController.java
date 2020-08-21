@@ -20,7 +20,7 @@ public class UserApiController {
 
 	@Autowired
 	private UserService userService;
-	
+		
 	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) {
 		logger.info("UserApiController : save 호출됨");

@@ -16,6 +16,12 @@ public class BoardService {
 	@Autowired
 	private BoardRepository boardRepository;
 	
+	@Transactional
+	public void 글삭제하기(int id) {
+		boardRepository.deleteById(id);
+	}
+	
+	@Transactional(readOnly = true)
 	public Board 글상세보기(int id) {
 		return boardRepository.findById(id)
 				.orElseThrow(()->{
@@ -23,6 +29,7 @@ public class BoardService {
 				});
 	}
 	
+	@Transactional(readOnly = true)
 	public Page<Board> 글목록(Pageable pageable) {
 		return boardRepository.findAll(pageable);
 	}

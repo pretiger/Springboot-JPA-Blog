@@ -21,5 +21,21 @@ $(function(){
 			}
 		});
 	});
-
+	
+	$("#btn-delete").click(function(){
+//		$("#id").val() 값을 id에 저장하면 controller에서 id값을 읽지못함
+		const id = $("#id").text();
+		$.ajax({
+			type: "delete",
+			url: "/api/board/"+id,
+			success: function(result){
+				console.log("success 결과값 : ", result);
+				alert("삭제가 완료되었습니다.");
+				location.href = "/";
+			},
+			error: function(err){
+				console.log("error 결과값 : ", err);
+			}
+		});
+	});
 });

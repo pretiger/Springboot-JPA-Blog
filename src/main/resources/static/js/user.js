@@ -12,9 +12,14 @@ $(function(){
 			contentType: "application/json; charset=utf-8",
 			dataType: "json",
 			success: function(result){
-				alert("회원가입이 완료되었습니다.");
-				console.log("success 결과값 : ", result);
-				location.href = "/";
+				console.log("result 결과값 : ", result);
+				console.log("status : ", status);
+				if(result.status === 500){
+					alert("회원가입이 실패하였습니다.");
+				} else {
+					alert("회원가입이 완료되었습니다.");
+					location.href = "/";
+				}
 			},
 			error: function(err){
 				console.log("error 결과값 : ", err);
